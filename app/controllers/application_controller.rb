@@ -18,7 +18,7 @@ class ApplicationController < ActionController::API
       render json: user, status: :ok 
 
     else
-      render json: {msg: "user not added"}, status: :unprocessable_entity 
+      render json: {msg: "user not added", error: user.errors}, status: :unprocessable_entity 
     end
   end 
 
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::API
       if @user.update(userparams)
         render json: @user, status: :ok 
       else 
-        render json: {msg: "Update failed" }, status: :unprocessable_entity
+        render json: {msg: "Update failed",error: @user.errors }, status: :unprocessable_entity
       end 
     else
       render json: {msg: " User not found"},  status: :unprocessable_entity
@@ -62,7 +62,7 @@ class ApplicationController < ActionController::API
   private 
 
   def userparams 
-    params.permit(:username, :email, :password_digest)
+    params.permit(:username, :email, :password)
   end
   def getUser 
     @user = User.find(params[:id])
