@@ -9,6 +9,7 @@ class Api::Auth::AuthController < ApplicationController
         end 
 
         if user.authenticate(params[:password])
+            token = self.create_token(user.id.to_s, user.usermane, user.type)
             render json: {msg: "Sucesfull login", user: user}, status: :ok
         else 
             render json: {msg: " Password wrong"}, status: :unprocessable_entity  

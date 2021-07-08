@@ -5,6 +5,7 @@ class User
   field :username, type: String
   field :email, type: String
   field :password_digest, type: String
+  field :type, type: Integer
 
   validates :username, uniqueness: true , presence: true
   validates :email, uniqueness: true , presence: true
