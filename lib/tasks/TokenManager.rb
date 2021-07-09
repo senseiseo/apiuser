@@ -1,5 +1,7 @@
-module TokerManager 
-    include Encryptor
+require 'Encrypter'
+
+module TokenManager 
+    include Encrypter
 
     def generate_token(user_id, username, usertype)
         extime = (Time.now + add_day(2)).to_i

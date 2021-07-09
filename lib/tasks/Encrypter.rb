@@ -1,5 +1,5 @@
 # main purpose of this one is for encrypting something like token pero HINDI PASSWORD
-module Encryptor
+module Encrypter
 
 
 def encrypt_string(str)
@@ -27,6 +27,7 @@ def decrypt_string(encrypted_str)
     rescue
          return false
     end
+end
 end
 
 private 

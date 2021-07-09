@@ -6,6 +6,7 @@ class User
   field :email, type: String
   field :password_digest, type: String
   field :type, type: Integer
+  filed :token, type: String
 
   validates :username, uniqueness: true , presence: true
   validates :email, uniqueness: true , presence: true

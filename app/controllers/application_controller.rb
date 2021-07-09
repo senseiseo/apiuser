@@ -1,5 +1,7 @@
+require 'TokenManager'
+
 class ApplicationController < ActionController::API
-  include TokerManager 
+  include TokenManager 
 
   def create_token(user_id, username, usertype)
     return generate_token(user_id, username, usertype)
