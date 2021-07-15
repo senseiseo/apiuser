@@ -12,16 +12,16 @@ class Api::V1::UsersController < ApplicationController
   end 
   #post
   def addUser
-    user.type = 2 
     user = User.new(userparams)
+    user.type = 2; # eveytime a user is created a type is will be default as 2
 
-    if user.save 
-      render json: user, status: :ok 
-
+    if user.save()
+         render json: user.as_json({:except => [:password_digest]}).merge({:id => user.id.to_s}), status: :ok
     else
-      render json: {msg: "user not added", error: user.errors}, status: :unprocessable_entity 
+         render json: { msg: "User not added", error: user.errors }, status: :unprocessable_entity
     end
-  end 
+
+end
 
   #put 
   def updateUser 

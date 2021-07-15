@@ -1,4 +1,4 @@
-# main purpose of this one is for encrypting something like token pero HINDI PASSWORD
+
 module Encrypter
 
 
@@ -28,7 +28,7 @@ def decrypt_string(encrypted_str)
          return false
     end
 end
-end
+
 
 private 
     def salt1
